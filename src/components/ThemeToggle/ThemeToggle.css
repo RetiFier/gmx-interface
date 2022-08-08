@@ -1,0 +1,16 @@
+.Button {
+  display: flex;
+  padding: 0.5rem;
+  background-color: transparent;
+  transition-property: all;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-color: var(--text-primary);
+}
+.ToggleSvg {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--text-primary);
+}

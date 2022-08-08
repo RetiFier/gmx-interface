@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef, useContext } from "react";
 import { SWRConfig } from "swr";
 import { ethers } from "ethers";
 
@@ -94,6 +94,7 @@ import AddressDropdown from "./components/AddressDropdown/AddressDropdown";
 import { ConnectWalletButton } from "./components/Common/Button";
 import useEventToast from "./components/EventToast/useEventToast";
 import EventToastContainer from "./components/EventToast/EventToastContainer";
+import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import SEO from "./components/Common/SEO";
 import useRouteQuery from "./hooks/useRouteQuery";
 import { encodeReferralCode, decodeReferralCode } from "./Api/referrals";
@@ -109,6 +110,7 @@ import { useLocalStorage } from "react-use";
 import { RedirectPopupModal } from "./components/ModalViews/RedirectModal";
 import { REDIRECT_POPUP_TIMESTAMP_KEY } from "./utils/constants";
 import Jobs from "./views/Jobs/Jobs";
+import { ThemeContext } from "./context/useThemeContext";
 
 if ("ethereum" in window) {
   window.ethereum.autoRefreshOnNetworkChange = false;
@@ -265,6 +267,9 @@ function AppHeaderUser({
             {small ? "Connect" : "Connect Wallet"}
           </ConnectWalletButton>
         )}
+        <div className="App-header-toggle">
+          <ThemeToggle />
+        </div>
       </div>
     );
   }
@@ -278,6 +283,7 @@ function AppHeaderUser({
           Trade
         </HeaderLink>
       </div>
+
       {showConnectionOptions && (
         <NetworkSelector
           options={networkOptions}
@@ -649,15 +655,19 @@ function FullApp() {
     };
   }, [active, chainId, vaultAddress, positionRouterAddress]);
 
+  //theme
+  const { theme } = useContext(ThemeContext);
+
   return (
     <>
-      <div className="App">
+      <div className={`App ${theme}`}>
         {/* <div className="App-background-side-1"></div>
         <div className="App-background-side-2"></div>
         <div className="App-background"></div>
         <div className="App-background-ball-1"></div>
         <div className="App-background-ball-2"></div>
         <div className="App-highlight"></div> */}
+
         <div className="App-content">
           {isDrawerVisible && (
             <AnimatePresence>

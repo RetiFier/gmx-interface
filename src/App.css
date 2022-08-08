@@ -3,6 +3,8 @@
   overflow: hidden;
   min-height: 100%;
   font-size: 1.5rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .App-header-backdrop {
@@ -92,7 +94,7 @@
 .App-header-drawer .App-header-link-container a:focus,
 .App-header-drawer .App-header-link-container a.active {
   background: #303fd024;
-  color: white;
+  color: var(--text-primary);
 }
 
 .App-header-links-header {
@@ -649,7 +651,7 @@ button.App-connect-wallet:hover {
 
 .App-header-container-left .a.active,
 .App-header-container-left a.active {
-  color: white;
+  color: var(--text-primary);
 }
 
 .Toastify {
@@ -919,6 +921,10 @@ button.App-button-option:disabled {
   margin-right: 2.4rem;
 }
 
+.App-header-toggle {
+  margin-left: 2.4rem;
+}
+
 .App-content {
   position: static !important;
 }
@@ -1129,7 +1135,7 @@ button.App-button {
 
 .App-slider .rc-slider-mark-text,
 .App-slider .rc-slider-mark-text-active {
-  color: white;
+  color: var(--text-primary);
   opacity: 0.5;
 }
 
@@ -1209,6 +1215,10 @@ button.App-button {
 
   .App-header-user-netowork {
     margin-right: 1.6rem;
+  }
+
+  .App-header-toggle {
+    margin-left: 1.6rem;
   }
 
   button.App-connect-wallet {
@@ -1344,6 +1354,10 @@ button.App-button {
 
   .App-header-user-netowork {
     margin-right: 0.6rem;
+  }
+
+  .App-header-toggle {
+    margin-left: 0.6rem;
   }
 
   .App-header-menu-icon-block {

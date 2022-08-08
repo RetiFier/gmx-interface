@@ -5,9 +5,7 @@ body,
   width: 100%;
   margin: 0;
   padding: 0;
-  color: white;
   font-size: 10px;
-  background-color: #101124;
 }
 
 * {
@@ -53,10 +51,27 @@ input {
   --arbitrum-blue: #28a0f0;
   --border-radius-sm: 4px;
   --error-red: #fa3c58;
+  --bg-primary-light: #fff;
+  --text-primary-light: #4a4a4a;
+  --text-secondary-light: #464646;
+  --text-primary-dark: #fff;
+}
+
+/* Theme Toggle */
+
+.dark-theme {
+  --text-primary: var(--text-primary-dark);
+  --bg-primary: var(--dark-blue-bg);
+}
+
+.light-theme {
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --bg-primary: var(--bg-primary-light);
 }
 
 a {
-  color: white;
+  color: var(--text-primary);
 }
 
 .Card-title {
